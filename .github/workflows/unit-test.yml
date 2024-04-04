@@ -1,4 +1,4 @@
-name: Unit Test
+name: Unit Test and SonarCloud Analysis
 
 on:
   pull_request:
@@ -33,3 +33,9 @@ jobs:
           echo "Test coverage is below the required threshold of ${COVERAGE_THRESHOLD}%"
           exit 1
         fi
+
+    - name: SonarCloud Analysis
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
