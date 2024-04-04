@@ -1,0 +1,36 @@
+{
+  "name": "testunit2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calculadora.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daniboy96/TestUnit2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daniboy96/TestUnit2/issues"
+  },
+  "homepage": "https://github.com/Daniboy96/TestUnit2#readme",
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["text",  "html" ],
+    "coverageDirectory": "coverage",
+    "coverageThreshold": {
+      "global": {
+        "branches": 75,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
+    }
+  },
+  "devDependencies": {
+    "jest-html-reporter": "^3.10.2"
+  }
+}
