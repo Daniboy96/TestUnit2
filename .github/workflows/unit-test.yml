@@ -28,7 +28,3 @@ jobs:
     - name: Run unit tests
       run: npm run test  
 
-    - name: SonarCloud Analysis
-      uses: sonarsource/sonarcloud-github-action@master
-      env:    
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
