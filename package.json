@@ -1,7 +1,6 @@
 {
   "name": "teste-unit",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --coverageReporters=json-summary"
@@ -19,5 +18,6 @@
   "homepage": "https://github.com/Daniboy96/Teste-Unit#readme",
   "devDependencies": {
     "jest": "^29.7.0"
-  }
+  },
+  "description": ""
 }
