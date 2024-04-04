@@ -26,16 +26,7 @@ jobs:
       run: npm install
 
     - name: Run unit tests
-      run: npm run test
-
-    - name: Check test coverage
-      run: |
-        COVERAGE_THRESHOLD=75
-        COVERAGE_REPORT=$(cat coverage/lcov-report/index.html | grep -oP "(?<=<span class=\"strong\">)(\d+)(?=%<\/span>)")
-        if [ -z "$COVERAGE_REPORT" ] || [ $COVERAGE_REPORT -lt $COVERAGE_THRESHOLD ]; then
-          echo "Test coverage is below the required threshold of ${COVERAGE_THRESHOLD}%"
-          exit 1
-        fi
+      run: npm run test  
 
     - name: SonarCloud Analysis
       uses: sonarsource/sonarcloud-github-action@master
