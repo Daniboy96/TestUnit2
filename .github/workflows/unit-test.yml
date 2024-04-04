@@ -7,8 +7,7 @@ on:
       
   pull_request:
     branches:
-      - main
-      - teste
+      - Teste
 
 jobs:
   build:
@@ -29,15 +28,16 @@ jobs:
     - name: Run unit tests
       run: npm run test
 
+    - name: Check test coverage
+      run: |
+        COVERAGE_THRESHOLD=75
+        COVERAGE_REPORT=$(cat coverage/lcov-report/index.html | grep -oP "(?<=<span class=\"strong\">)(\d+)(?=%<\/span>)")
+        if [ -z "$COVERAGE_REPORT" ] || [ $COVERAGE_REPORT -lt $COVERAGE_THRESHOLD ]; then
+          echo "Test coverage is below the required threshold of ${COVERAGE_THRESHOLD}%"
+          exit 1
+        fi
+
     - name: SonarCloud Analysis
       uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env:    
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      with:
-        projectBaseDir: './'
-        extraProperties: |
-          sonar.projectKey=784a7128e8e31001da898fa590e62d84b2424eef
-          sonar.sources=src
-          sonar.tests=test
-          sonar.javascript.lcov.reportPaths=coverage/lcov.info
