@@ -1,10 +1,13 @@
 name: Unit Test and SonarCloud Analysis
 
 on:
-  pull_request:
+  push:
     branches:
       - main
       - stg
+  pull_request:
+    branches:    
+      - Teste
 
 jobs:
   build:
