@@ -9,10 +9,10 @@ test('Teste de subtração', () => {
   expect(subtracao(5, 2)).toBe(3);
 });
 
-// test('Teste de multiplicação', () => {
-//   expect(multiplicacao(4, 5)).toBe(20);
-// });
+test('Teste de multiplicação', () => {
+  expect(multiplicacao(4, 5)).toBe(20);
+});
 
-// test('Teste de divisão', () => {
-//   expect(divisao(10, 2)).toBe(5);
-// });
+test('Teste de divisão', () => {
+  expect(divisao(10, 2)).toBe(5);
+});
